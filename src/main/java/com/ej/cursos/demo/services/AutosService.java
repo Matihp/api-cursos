@@ -22,8 +22,28 @@ public class AutosService {
     public List<Autos> listarAutos(){
         return autoRepo.findAll();
     }
-    Optional<Autos> buscarPorId(Long id){
+
+    public List<Autos> buscarPorMarca(String marca){
+        return autoRepo.findByMarca(marca);
+    }
+
+    public List<Autos> buscarPorModelo(String modelo){
+        return autoRepo.findByModelo(modelo);
+    }
+    public List<Autos> buscarPorColor(String color){
+        return autoRepo.findByColor(color);
+    }
+    public List<Autos> buscarPorAnio(Long anio){
+        return autoRepo.findByAnio(anio);
+    }
+    public Optional<Autos> buscarPorId(Long id){
         return autoRepo.findById(id);
+    }
+    public void actualizarAuto(Autos auto){
+        autoRepo.save(auto);
+    }
+    public void eliminarAuto(Long id){
+        autoRepo.deleteById(id);
     }
 
 }
